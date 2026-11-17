@@ -1,0 +1,14 @@
+services:
+  pi-lab:
+    build: .
+    hostname: pilab
+    ports:
+      - "127.0.0.1:4180:4180"
+    volumes:
+      - pi-home:/home/pi
+    mem_limit: 2g
+    cpus: 2
+    pids_limit: 256
+    restart: unless-stopped
+volumes:
+  pi-home:

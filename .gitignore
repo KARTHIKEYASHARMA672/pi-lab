@@ -1,0 +1,10 @@
+.playwright-cli/
+node_modules/
+.env
+.env.*
+*.log
+output/
+.openai/
+__pycache__/
+*.tar.gz
+*.zip

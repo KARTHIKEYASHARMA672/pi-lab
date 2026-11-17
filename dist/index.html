@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#eeeaf4" />
+    <title>Pi Lab — Your little computer, anywhere.</title>
+    <meta
+      name="description"
+      content="An independent Raspberry Pi inspired Linux workbench. Execute real Bash commands and Python inside an isolated Docker container."
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="vendor/xterm.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="launcher" class="launcher">
+      <nav class="landing-nav">
+        <a class="brand" href="#"
+          >◈ <strong>pi<span>lab</span></strong></a
+        ><span class="pill">A LITTLE COMPUTER. A LOT OF POSSIBILITY.</span
+        ><button class="quiet" id="launch-help">About the lab ↗</button>
+      </nav>
+      <main class="landing-main">
+        <div class="eyebrow">
+          <span class="status-dot"></span> YOUR BROWSER IS THE HARDWARE
+        </div>
+        <h1>Big ideas.<br />A little <em>Pi.</em></h1>
+        <p>
+          Your own Raspberry Pi-inspired desktop.<br />Write code, explore, and
+          make something yours.<br />No board required.
+        </p>
+        <button id="launch" class="primary">
+          Start your Pi <span>↗</span>
+        </button>
+        <div class="small-note">
+          Free to explore · Files stay in this browser
+        </div>
+      </main>
+      <div class="board-scene">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <button
+          id="pi-board"
+          class="pi-board"
+          aria-label="Double-click to boot virtual Raspberry Pi"
+        >
+          <span class="mount m1"></span><span class="mount m2"></span
+          ><span class="mount m3"></span><span class="mount m4"></span
+          ><span class="pins"></span
+          ><span class="chip">◈<small>Pi Lab</small></span
+          ><span class="board-logo">◈</span
+          ><span class="board-text">RASPBERRY PI<br />VIRTUAL COMPUTER</span
+          ><span class="port usb p1"></span><span class="port usb p2"></span
+          ><span class="port ethernet"></span><span class="port hdmi"></span
+          ><span class="port power"></span><span class="trace t1"></span
+          ><span class="trace t2"></span><span class="board-led"></span></button
+        ><span class="board-caption"
+          >YOUR VIRTUAL RASPBERRY PI <span>↖</span
+          ><small>Double-click to power on</small></span
+        ><span class="floating-tag"
+          ><span class="status-dot"></span> Ready when you are</span
+        >
+      </div>
+      <footer class="landing-footer">
+        <span>DESIGNED FOR THE CURIOUS.</span>
+        <div>
+          <span>⌘ A desktop that feels familiar</span
+          ><span>⌁ Real Python, in your browser</span
+          ><span>↗ Yours to experiment with</span>
+        </div>
+        <span>01 / EXPLORE</span>
+      </footer>
+    </div>
+    <div id="desktop" hidden>
+      <div class="wallpaper">
+        <div class="sun"></div>
+        <div class="mountain back"></div>
+        <div class="mountain mid"></div>
+        <div class="mountain front"></div>
+        <div class="wallpaper-label">a little space for big ideas.</div>
+      </div>
+      <header class="panel">
+        <button
+          id="menu-button"
+          class="menu-button"
+          aria-label="Applications menu"
+        >
+          ◈</button
+        ><span class="panel-divider"></span
+        ><button data-open="files" title="File Manager">▰</button
+        ><button data-open="terminal" title="Terminal">▣</button
+        ><button data-open="editor" title="Python Editor">⌘</button>
+        <div id="tasks" class="tasks"></div>
+        <div class="panel-right">
+          <span class="browser-badge">BROWSER EDITION</span
+          ><button
+            id="sound-button"
+            aria-label="Toggle interface sound indicator"
+          >
+            ♫</button
+          ><button data-open="settings" aria-label="Desktop settings">⚙</button
+          ><time id="clock"></time
+          ><button id="power-button" aria-label="Power options">⏻</button>
+        </div>
+      </header>
+      <div id="app-menu" class="app-menu" hidden>
+        <div class="menu-heading">
+          ◈ <strong>Pi Lab</strong><small>Make yourself at home.</small>
+        </div>
+        <div id="menu-apps"></div>
+        <button id="shutdown">⏻ Return to launchpad</button>
+      </div>
+      <div class="desktop-icons">
+        <button data-open="files">
+          <span class="desktop-icon folder-icon">▰</span>Home</button
+        ><button data-open="editor">
+          <span class="desktop-icon python-icon">⌘</span>Python Editor</button
+        ><button data-open="terminal">
+          <span class="desktop-icon terminal-icon">›_</span>Terminal</button
+        ><button data-open="gpio">
+          <span class="desktop-icon gpio-icon">⌁</span>GPIO Lab</button
+        ><button data-open="help">
+          <span class="desktop-icon help-icon">?</span>Getting started
+        </button>
+      </div>
+      <main id="windows" aria-label="Desktop windows"></main>
+      <div id="toast" role="status"></div>
+      <div class="desktop-bottom">
+        <span><i class="status-dot"></i> Virtual Pi is running</span
+        ><span>Independent learning environment · simulated hardware</span>
+      </div>
+    </div>
+    <div id="boot" hidden>
+      <span class="boot-logo">◈</span>
+      <h2>Waking up your Pi.</h2>
+      <p id="boot-status">Preparing your workspace…</p>
+      <div class="boot-progress"><i></i></div>
+    </div>
+    <script src="vendor/xterm.js"></script>
+    <script src="vendor/addon-fit.js"></script>
+    <script src="app.js"></script>
+    <script src="backend-client.js"></script>
+  </body>
+</html>
